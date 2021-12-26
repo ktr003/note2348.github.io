@@ -98,6 +98,17 @@ function tool(btnNum) {
     }
 }
 
+// スクロールを禁止にする関数
+function disableScroll(event) {
+    event.preventDefault();
+}
+
+// スクロール禁止
+document.getElementById('on').onclick = function () {
+    // イベントと関数を紐付け
+    document.addEventListener('touchmove', disableScroll, { passive: false });
+    document.body.classList.add('overflow-hidden');
+}
 
 window.addEventListener('load', function () {
 
@@ -132,6 +143,7 @@ window.addEventListener('load', function () {
     // マウスダウンイベントを設定
     window.addEventListener(EVENT.TOUCH_START, function (e) {
         //スマホだったら
+
         if (ua != 'other') e = e.touches[0];
         startX = e.pageX - x;
         startY = e.pageY - y;
