@@ -98,18 +98,6 @@ function tool(btnNum) {
     }
 }
 
-// スクロールを禁止にする関数
-function disableScroll(event) {
-    event.preventDefault();
-}
-
-// スクロール禁止
-document.getElementById('on').onclick = function () {
-    // イベントと関数を紐付け
-    document.addEventListener('touchmove', disableScroll, { passive: false });
-    document.body.classList.add('overflow-hidden');
-}
-
 window.addEventListener('load', function () {
 
     canvas.width = document.documentElement.clientWidth - 100;
